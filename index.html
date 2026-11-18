@@ -264,14 +264,13 @@ body{
   overflow:hidden;font-family:"Be Vietnam Pro",Arial,sans-serif;color:#fff;-webkit-font-smoothing:antialiased;
   background:radial-gradient(120% 90% at 50% 20%,#1f6a6e 0%,#134a4d 55%,#0c3335 100%);
 }
-#viewport{position:fixed;left:0;right:0;top:0;bottom:var(--bar,84px)}
+#viewport{position:fixed;inset:0;overflow:hidden}
 #stage{position:absolute;left:0;top:0;transform-origin:0 0}
-.layout{display:none;border-radius:22px;overflow:hidden;
-  box-shadow:0 40px 90px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08)}
+.layout{display:none}
 .layout.on{display:block}
 @media (prefers-reduced-motion:no-preference){
-  #stage.ready .layout.on{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
-  @keyframes rise{from{opacity:0;translate:0 16px}to{opacity:1;translate:0 0}}
+  #stage.ready .layout.on .content{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
 }
 
 .vp{
@@ -283,6 +282,11 @@ body{
     radial-gradient(900px 620px at 50% 1330px, rgba(46,183,147,.24), rgba(46,183,147,0) 70%),
     radial-gradient(1400px 1100px at 50% 1420px, #26777b 0%, #1d6266 42%, #17565a 72%, #124649 100%);
   font-family:"Be Vietnam Pro",Arial,sans-serif;color:#fff}
+.vp .cell.note{grid-column:1/3;border-top:1px solid rgba(220,232,234,.16);justify-content:flex-start;gap:20px;padding:20px 40px 22px}
+.vp .cell.note svg{flex:0 0 auto;width:42px;height:42px;color:#2eb793}
+.vp .cell.note p{font-size:20px;line-height:1.5;color:rgba(232,240,241,.76);text-align:left}
+.vp .cell.note b{font-weight:600;color:#fff;letter-spacing:.01em}
+.vp .cta-slot{height:0;width:100%;flex:0 0 auto}
 .vp .hero{position:absolute;left:0;top:0;width:1480px;height:1000px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 0,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 62%,transparent 100%)}
 .vp .hero img{position:absolute;height:1000px;width:auto;left:-6px;top:0}
 .vp .hero:after{content:"";position:absolute;inset:0;
@@ -328,7 +332,7 @@ body{
 .vp .k.r{text-align:left}
 .vp .big{font-family:"Playfair Display",serif;font-weight:600;font-size:82px;line-height:1;letter-spacing:-.01em;padding:4px 2px 10px}
 .vp .big.place{font-size:66px;font-style:italic;font-weight:500}
-.vp .closing{font-size:74px;margin-top:40px;padding:0 24px 12px}
+.vp .closing{font-size:64px;margin-top:10px;padding:0 24px 10px}
 .vp .tag{margin-top:6px;font-size:17px;font-weight:600;letter-spacing:.5em;text-transform:uppercase;color:rgba(232,240,241,.62);padding-left:.5em}
 .vp .tag em{font-style:normal;color:var(--mint)}
 .vp .blank2{display:none;width:620px;height:46px;border-bottom:2px dotted rgba(232,240,241,.55)}
@@ -346,6 +350,11 @@ body{
     radial-gradient(760px 520px at 1330px 560px, rgba(46,183,147,.22), rgba(46,183,147,0) 70%),
     radial-gradient(1300px 1100px at 1330px 560px, #26777b 0%, #1d6266 42%, #17565a 75%, #124649 100%);
   font-family:"Be Vietnam Pro",Arial,sans-serif;color:#fff}
+.vl .cell.note{grid-column:1/3;border-top:1px solid rgba(220,232,234,.16);justify-content:flex-start;gap:16px;padding:12px 30px 13px}
+.vl .cell.note svg{flex:0 0 auto;width:32px;height:32px;color:#2eb793}
+.vl .cell.note p{font-size:15.5px;line-height:1.5;color:rgba(232,240,241,.74);text-align:left}
+.vl .cell.note b{font-weight:600;color:#fff;letter-spacing:.01em}
+.vl .cta-slot{height:0;width:100%;flex:0 0 auto}
 .vl .hero{position:absolute;left:0;top:0;width:1120px;height:1080px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,#000 0,#000 56%,rgba(0,0,0,.55) 74%,transparent 100%);mask-image:linear-gradient(90deg,#000 0,#000 56%,rgba(0,0,0,.55) 74%,transparent 100%)}
 .vl .hero img{position:absolute;height:1080px;width:auto;left:-40px;top:0}
 .vl .hero:after{content:"";position:absolute;inset:0;
@@ -363,35 +372,35 @@ body{
 .vl .metal{display:inline-block;padding:.42em .42em .36em;margin:-.42em -.42em -.36em;background:var(--silver);-webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 6px 14px rgba(0,0,0,.38))}
 .vl .script{font-family:"Great Vibes",cursive;font-weight:400;line-height:1}
-.vl .thu{font-size:100px;padding:0 20px 10px}
-.vl .rule{display:flex;align-items:center;gap:20px;margin:0 0 18px}
+.vl .thu{font-size:84px;padding:0 20px 6px}
+.vl .rule{display:flex;align-items:center;gap:20px;margin:0 0 14px}
 .vl .rule i{display:block;width:170px;height:1.5px;background:linear-gradient(90deg,rgba(220,232,234,0),rgba(220,232,234,.85))}
 .vl .rule i:last-child{background:linear-gradient(90deg,rgba(220,232,234,.85),rgba(220,232,234,0))}
 .vl .rule b{display:block;width:11px;height:11px;transform:rotate(45deg);background:linear-gradient(135deg,#fff,#a9babd);box-shadow:0 0 14px rgba(255,255,255,.6)}
 .vl .eyebrow{font-size:19px;font-weight:500;letter-spacing:.42em;text-transform:uppercase;color:rgba(232,240,241,.72);padding-left:.42em}
-.vl .name{font-family:"Playfair Display",serif;font-weight:600;font-size:62px;line-height:1.15;margin-top:8px;color:#fff;white-space:nowrap;
+.vl .name{font-family:"Playfair Display",serif;font-weight:600;font-size:62px;line-height:1.15;margin-top:4px;color:#fff;white-space:nowrap;
   text-shadow:0 4px 18px rgba(0,0,0,.35)}
 .vl .org{font-size:25px;font-weight:400;color:#fff;margin-top:8px;letter-spacing:.01em}
 .vl .blank{display:none;width:700px;height:72px;border-bottom:2.5px dotted rgba(232,240,241,.7)}
-.vl .attend{margin-top:24px}
-.vl .event{font-family:"Playfair Display",serif;font-weight:700;font-size:100px;line-height:1.1;letter-spacing:.015em;text-transform:uppercase;white-space:nowrap;margin-top:2px;padding:8px 6px 4px}
+.vl .attend{margin-top:18px}
+.vl .event{font-family:"Playfair Display",serif;font-weight:700;font-size:96px;line-height:1.1;letter-spacing:.015em;text-transform:uppercase;white-space:nowrap;margin-top:2px;padding:8px 6px 4px}
 .vl .plaque{position:relative;margin-top:12px;display:flex;align-items:center}
 .vl .plaque .tip{width:26px;height:26px;position:relative;z-index:2;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff,#9fb1b4);box-shadow:0 0 18px rgba(255,255,255,.35)}
 .vl .plaque .bar{position:relative;margin:0 -15px;padding:3px;border-radius:999px;background:linear-gradient(180deg,#ffffff,#a9bbbe 50%,#f2f6f6)}
 .vl .plaque .bar span{display:block;border-radius:999px;padding:16px 54px 15px;background:linear-gradient(180deg,#ffffff 0%,#eef4f4 100%);
   color:var(--teal);font-weight:800;font-size:28px;letter-spacing:.14em;text-transform:uppercase;box-shadow:inset 0 0 0 1.5px rgba(29,98,102,.18)}
-.vl .panel{position:relative;margin-top:34px;width:1000px;border-radius:22px;padding:2px;
+.vl .panel{position:relative;margin-top:22px;width:1000px;border-radius:22px;padding:2px;
   background:linear-gradient(160deg,rgba(255,255,255,.75),rgba(46,183,147,.35) 35%,rgba(255,255,255,.12) 60%,rgba(220,232,234,.7))}
 .vl .panel .in{background:linear-gradient(180deg,rgba(18,72,76,.9),rgba(14,60,63,.92))!important;border-radius:20px;background:linear-gradient(180deg,rgba(9,40,43,.92),rgba(7,31,33,.94));
   display:grid;grid-template-columns:1fr 1fr;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
-.vl .cell{display:flex;align-items:center;justify-content:center;gap:18px;padding:20px 22px}
+.vl .cell{display:flex;align-items:center;justify-content:center;gap:18px;padding:17px 22px}
 .vl .cell.wide{grid-column:1/3;border-top:1px solid rgba(220,232,234,.16)}
 .vl .cell+.cell:not(.wide){border-left:1px solid rgba(220,232,234,.16)}
 .vl .k{font-size:15.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,240,241,.8);line-height:1.5;text-align:right}
 .vl .k.r{text-align:left}
 .vl .big{font-family:"Playfair Display",serif;font-weight:600;font-size:66px;line-height:1;letter-spacing:-.01em;padding:4px 2px 10px}
 .vl .big.place{font-size:54px;font-style:italic;font-weight:500}
-.vl .closing{font-size:62px;margin-top:28px;padding:0 24px 10px}
+.vl .closing{font-size:52px;margin-top:0;padding:0 24px 8px}
 .vl .tag{margin-top:4px;font-size:14px;font-weight:600;letter-spacing:.5em;text-transform:uppercase;color:rgba(232,240,241,.62);padding-left:.5em}
 .vl .tag em{font-style:normal;color:var(--mint)}
 .vl .blank2{display:none;width:500px;height:46px;border-bottom:2px dotted rgba(232,240,241,.55)}
@@ -401,41 +410,52 @@ body{
 .vl .slogan i:last-child{background:linear-gradient(90deg,rgba(46,183,147,.9),rgba(46,183,147,0))}
 .vl .slogan span{font-family:"Playfair Display",serif;font-weight:600;font-size:22px;letter-spacing:.24em;text-transform:uppercase;padding:2px 0 4px .24em;white-space:nowrap}
 
-/* portrait card grows taller on tall phone screens: the photo absorbs the extra height */
-.vp .c{height:calc(2100px + var(--ex,0px))}
-.vp .hero{height:calc(1000px + var(--ex,0px))}
-.vp .hero img{height:calc(1000px + var(--ex,0px))}
+/* full-bleed: the card is stretched to the browser's own proportions */
+.vl .c{width:var(--W);height:var(--H);
+  background:
+    radial-gradient(760px 520px at calc(1330px + var(--dx)) calc(var(--H) / 2), rgba(46,183,147,.22), rgba(46,183,147,0) 70%),
+    radial-gradient(1300px 1100px at calc(1330px + var(--dx)) calc(var(--H) / 2), #26777b 0%, #1d6266 42%, #17565a 75%, #124649 100%)}
+.vl .hero{width:calc(1120px + var(--dx) * .55);height:var(--H)}
+.vl .hero img{left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:8% 40%}
+.vl .hero:after{background:
+    linear-gradient(180deg, rgba(12,48,51,0) calc(var(--H) - 480px), rgba(18,70,73,.5) calc(var(--H) - 200px), rgba(18,70,73,.8) var(--H)),
+    linear-gradient(90deg, rgba(18,70,73,0) 50%, rgba(24,88,92,.4) 80%)}
+.vl svg.light{inset:auto auto 0 0;width:calc(1920px * var(--f));height:calc(1080px * var(--f))}
+.vl .content{left:calc(790px + var(--dx));top:var(--ct)}
+
+.vp .c{width:var(--W);height:var(--H)}
+.vp .hero{width:100%;height:var(--hh)}
+.vp .hero img{left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:30% 0}
 .vp .hero:after{background:
     linear-gradient(180deg, rgba(12,48,51,.25) 0px, rgba(12,48,51,0) 220px),
-    linear-gradient(180deg, rgba(18,70,73,0) calc(520px + var(--ex,0px)), rgba(22,80,84,.5) calc(840px + var(--ex,0px)))}
-.vp svg.light{top:var(--ex,0px)}
-.vp .content{top:calc(900px + var(--ex,0px))}
-.vp .motto{top:calc(372px + var(--ex,0px) * .5)}
+    linear-gradient(180deg, rgba(18,70,73,0) calc(var(--hh) - 480px), rgba(22,80,84,.5) calc(var(--hh) - 140px))}
+.vp svg.light{top:var(--lt);left:calc(var(--dx) / 2)}
+.vp .content{left:calc(40px + var(--dx) / 2);right:calc(40px + var(--dx) / 2);top:var(--ct)}
+.vp .motto{top:var(--mt)}
 
-
-/* ---------- bottom bar ---------- */
-#bar{position:fixed;left:0;right:0;bottom:0;height:var(--bar,84px);display:flex;align-items:center;justify-content:center;gap:12px;padding:0 14px}
+/* ---------- in-card call to action (kept at real size so it stays tappable) ---------- */
+#cta{position:fixed;z-index:5;max-width:calc(100vw - 20px);display:flex;align-items:center;justify-content:center;gap:10px;transform:translate(-50%,-50%);visibility:hidden}
+#cta.on{visibility:visible}
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:9px;height:48px;padding:0 22px;border-radius:999px;
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;height:var(--bh,52px);padding:0 22px;border-radius:999px;
   font:600 15px/1 "Be Vietnam Pro",Arial,sans-serif;letter-spacing:.01em;text-decoration:none;cursor:pointer;white-space:nowrap;
-  border:1px solid rgba(255,255,255,.3);color:#fff;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.34);color:#fff;background:rgba(10,44,47,.32);
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
   transition:background .18s,border-color .18s,transform .18s,box-shadow .18s;
 }
-.btn:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.55)}
+.btn:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.6)}
 .btn:active{transform:translateY(1px)}
 .btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
 .btn svg{width:19px;height:19px;flex:0 0 auto}
-.btn.primary{border:0;color:#0f3f42;font-weight:700;padding:0 26px;
-  background:linear-gradient(180deg,#ffffff 0%,#e8f1f1 55%,#d3e0e1 100%);
-  box-shadow:0 10px 28px rgba(0,0,0,.28),inset 0 0 0 1.5px rgba(29,98,102,.18)}
-.btn.primary:hover{background:linear-gradient(180deg,#fff,#f1f7f7 55%,#dfeaea);box-shadow:0 12px 32px rgba(0,0,0,.32),inset 0 0 0 1.5px rgba(29,98,102,.28)}
-.btn.primary .dot{width:9px;height:9px;border-radius:50%;background:#2eb793;box-shadow:0 0 0 4px rgba(46,183,147,.22)}
-@media (max-width:520px){
-  #bar{gap:8px;padding:0 10px}
-  .btn.ghost{width:48px;padding:0}
-  .btn.ghost span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-  .btn.primary{flex:1;max-width:280px;padding:0 16px}
-}
+.btn.ghost{width:var(--bh,52px);padding:0}
+.btn.ghost span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.btn.primary{min-width:0;border:0;color:#0b3436;font-weight:700;font-size:16px;padding:0 30px;letter-spacing:.02em;
+  background:linear-gradient(180deg,#5fd6b3 0%,#2eb793 55%,#27a684 100%);
+  box-shadow:0 14px 34px rgba(4,30,32,.38),0 0 0 1px rgba(255,255,255,.35) inset,0 0 26px rgba(46,183,147,.45)}
+.btn.primary:hover{background:linear-gradient(180deg,#72e0bf 0%,#38c49f 55%,#2eb793 100%)}
+.btn.primary svg{width:18px;height:18px}
+.dlg .btn{color:#fff}
+.dlg .btn.primary{color:#0b3436}
 
 /* ---------- RSVP dialog ---------- */
 #rsvp{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:18px;
@@ -541,8 +561,10 @@ body{
       <div class="cell"><div class="k">Thứ Tư<br>Ngày</div><div class="big"><span class="metal">02.12</span></div><div class="k r">Năm<br>2026</div></div>
       <div class="cell"><div class="k">Đón khách<br>từ</div><div class="big"><span class="metal">16:30</span></div><div class="k r">Đến<br>21:00</div></div>
       <div class="cell wide"><div class="k">Địa điểm<br>Phòng</div><div class="big place"><span class="metal">Avenir Grand</span></div><div class="k r">Tòa Capital Elite · Số 18 Phạm Hùng<br>Phường Từ Liêm, Hà Nội</div></div>
+      <div class="cell note"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="20"/><rect x="14" y="21" width="20" height="13" rx="1.5"/><path d="M12 16.5h24v4.5H12zM24 16.5V34M24 16.5c-2-4.5-7.5-5.5-7.5-2.2 0 2.2 4.4 2.2 7.5 2.2zM24 16.5c2-4.5 7.5-5.5 7.5-2.2 0 2.2-4.4 2.2-7.5 2.2z"/><path d="M10 38L38 10"/></svg><p><b>Để tránh lãng phí, vui lòng không mang theo hoa, quà.</b> Sự hiện diện của Quý khách là niềm vinh dự lớn đối với chúng tôi. Xin trân trọng cảm ơn!</p></div>
     </div></div>
 
+    <div class="cta-slot" id="slot-vl"></div>
     <div class="script closing"><span class="metal">Rất hân hạnh được đón tiếp!</span></div>
     
   </div>
@@ -569,8 +591,10 @@ body{
       <div class="cell"><div class="k">Thứ Tư<br>Ngày</div><div class="big"><span class="metal">02.12</span></div><div class="k r">Năm<br>2026</div></div>
       <div class="cell"><div class="k">Đón khách<br>từ</div><div class="big"><span class="metal">16:30</span></div><div class="k r">Đến<br>21:00</div></div>
       <div class="cell wide"><div class="k">Địa điểm<br>Phòng</div><div class="big place"><span class="metal">Avenir Grand</span></div><div class="k r">Tòa Capital Elite · Số 18 Phạm Hùng<br>Phường Từ Liêm, Hà Nội</div></div>
+      <div class="cell note"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="20"/><rect x="14" y="21" width="20" height="13" rx="1.5"/><path d="M12 16.5h24v4.5H12zM24 16.5V34M24 16.5c-2-4.5-7.5-5.5-7.5-2.2 0 2.2 4.4 2.2 7.5 2.2zM24 16.5c2-4.5 7.5-5.5 7.5-2.2 0 2.2-4.4 2.2-7.5 2.2z"/><path d="M10 38L38 10"/></svg><p><b>Để tránh lãng phí, vui lòng không mang theo hoa, quà.</b> Sự hiện diện của Quý khách là niềm vinh dự lớn đối với chúng tôi. Xin trân trọng cảm ơn!</p></div>
     </div></div>
 
+    <div class="cta-slot" id="slot-vp"></div>
     <div class="script closing"><span class="metal">Rất hân hạnh được đón tiếp!</span></div>
     
   </div>
@@ -578,21 +602,22 @@ body{
   </div>
 </main>
 
-<nav id="bar" aria-label="Tiện ích thư mời">
+<div id="cta" role="group" aria-label="Xác nhận và tiện ích">
   <a class="btn ghost" target="_blank" rel="noopener" title="Chỉ đường"
      href="https://www.google.com/maps/search/?api=1&amp;query=Capital%20Elite%2C%2018%20Ph%E1%BA%A1m%20H%C3%B9ng%2C%20T%E1%BB%AB%20Li%C3%AAm%2C%20H%C3%A0%20N%E1%BB%99i">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
     <span>Chỉ đường</span>
   </a>
+  <button class="btn primary" id="openRsvp" type="button" aria-haspopup="dialog">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+    <span id="openLabel">Xác nhận tham dự</span>
+  </button>
   <a class="btn ghost" target="_blank" rel="noopener" title="Lưu vào lịch"
      href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=L%E1%BB%85%20khai%20tr%C6%B0%C6%A1ng%20C%C3%B4ng%20ty%20Lu%E1%BA%ADt%20TNHH%20Paxlaw&amp;dates=20261202T093000Z%2F20261202T140000Z&amp;ctz=Asia%2FHo_Chi_Minh&amp;location=Ph%C3%B2ng%20Avenir%20Grand%2C%20T%C3%B2a%20Capital%20Elite%2C%2018%20Ph%E1%BA%A1m%20H%C3%B9ng%2C%20T%E1%BB%AB%20Li%C3%AAm%2C%20H%C3%A0%20N%E1%BB%99i&amp;details=Th%C6%B0%20m%E1%BB%9Di%20L%E1%BB%85%20khai%20tr%C6%B0%C6%A1ng%20Paxlaw%20%E2%80%94%2016%3A30%20%E2%80%93%2021%3A00">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>
     <span>Lưu vào lịch</span>
   </a>
-  <button class="btn primary" id="openRsvp" type="button" aria-haspopup="dialog">
-    <span class="dot" aria-hidden="true"></span><span id="openLabel">Xác nhận tham dự</span>
-  </button>
-</nav>
+</div>
 
 <div id="rsvp" role="dialog" aria-modal="true" aria-labelledby="dTitle">
   <div class="dlg" id="dlg">
@@ -881,22 +906,45 @@ body{
   /* ---------- fit the card to the screen, choose portrait or landscape ---------- */
   function fitText(el,max,size,min){el.style.fontSize=size+'px';while(el.scrollWidth>max&&size>min){size-=1;el.style.fontSize=size+'px';}}
   function fit(){
-    var bar=window.innerWidth<=520?76:84;
-    document.documentElement.style.setProperty('--bar',bar+'px');
-    var aw=window.innerWidth, ah=window.innerHeight-bar, pad=aw<=520?10:24;
-    var w=aw-pad*2, h=ah-pad;
-    var sL=Math.min(w/1920,h/1080), sP=Math.min(w/1480,h/2100);
-    var use=(sL*sL*1920*1080>=sP*sP*1480*2100)?'vl':'vp', d=DIM[use], ex=0, H=d.h;
-    if(use==='vp'){ex=Math.max(0,Math.min(760,Math.floor(h/(w/1480))-2100));H=2100+ex;}
-    document.getElementById('layout-vp').style.setProperty('--ex',ex+'px');
-    var s=use==='vl'?sL:Math.min(w/1480,h/H);
+    var vw=window.innerWidth, vh=window.innerHeight;
+    var sL=Math.min(vw/1920,vh/1080), sP=Math.min(vw/1480,vh/2100);
+    var use=(sL*sL*1920*1080>=sP*sP*1480*2100)?'vl':'vp', d=DIM[use];
+    var lay=document.getElementById('layout-'+use);
     document.getElementById('layout-vl').classList.toggle('on',use==='vl');
     document.getElementById('layout-vp').classList.toggle('on',use==='vp');
+    var s=use==='vl'?sL:sP;
+    for(var pass=0;pass<2;pass++){ s=layoutAt(use,lay,d,s,vw,vh); }
+    stage.style.transform='scale('+s+')';
+    stage.classList.add('ready');
+    var slot=document.getElementById('slot-'+use);
+    var r=slot.getBoundingClientRect(), cta=document.getElementById('cta');
+    cta.style.left=(r.left+r.width/2)+'px'; cta.style.top=(r.top+r.height/2)+'px'; cta.classList.add('on');
+  }
+  /* lay the card out at scale s; returns a smaller scale if the content would not fit */
+  function layoutAt(use,lay,d,s,vw,vh){
+    var W=vw/s, H=vh/s, dx=W-d.w, dy=H-d.h;
+    var st=lay.style;
+    st.setProperty('--W',W+'px'); st.setProperty('--H',H+'px');
+    st.setProperty('--dx',dx+'px'); st.setProperty('--dy',dy+'px');
+    st.setProperty('--f',Math.max(1,(1920+dx*.55)/1920));
     fitText(document.getElementById('name-'+use),d.nameMax,d.nameSize,34);
     fitText(document.getElementById('org-'+use),d.orgMax,d.orgSize,16);
-    var x=(aw-d.w*s)/2, y=Math.max(pad*0.6,(ah-H*s)/2);
-    stage.style.transform='translate('+x+'px,'+y+'px) scale('+s+')';
-    stage.classList.add('ready');
+    // room for the real-size button, in design pixels
+    var bh=Math.round(Math.max(46,Math.min(58,52*Math.max(s,.9))));
+    document.documentElement.style.setProperty('--bh',bh+'px');
+    var slot=document.getElementById('slot-'+use);
+    slot.style.height=Math.max(use==='vl'?92:130,(bh+(use==='vl'?18:30))/s)+'px';
+    var content=lay.querySelector('.content'), ch=content.offsetHeight;
+    if(use==='vl'){
+      if(ch+90>H)return vh/(ch+90);       // too short: shrink a little so nothing touches the edge
+      st.setProperty('--ct',Math.max(45,(H-ch)/2)+'px');
+    }else{
+      var ct=Math.max(560,H-ch-60);
+      st.setProperty('--ct',ct+'px'); st.setProperty('--hh',(ct+120)+'px');
+      st.setProperty('--lt',(ct-930)+'px');
+      st.setProperty('--mt',Math.max(350,Math.min(560,(318+ct-220)/2-70))+'px');
+    }
+    return s;
   }
 
   /* ---------- RSVP ---------- */
@@ -944,7 +992,8 @@ body{
   function summary(p){return p.attend==='Có'?('Tham dự · '+p.count+' người'):'Không tham dự';}
   function restoreSent(){
     var saved=null;try{saved=JSON.parse(localStorage.getItem(key())||'null');}catch(e){}
-    document.getElementById('openLabel').textContent=saved?('Đã xác nhận · '+summary(saved)):'Xác nhận tham dự';
+    document.getElementById('openLabel').textContent=saved?'Đã xác nhận':'Xác nhận tham dự';
+    document.getElementById('openRsvp').title=saved?('Đã xác nhận: '+summary(saved)+'. Bấm để sửa.'):'';
   }
   function open(){
     lastFocus=document.activeElement; box.classList.remove('sent'); dlg.classList.add('open');
