@@ -16,10 +16,16 @@ BASE = "https://phuongbonnal-lab.github.io/paxlaw-khai-truong/#"
 ROOT = Path(__file__).resolve().parent.parent
 
 
+HONORIFIC = re.compile(r"^(ông|bà|anh|chị|cô|chú)\s+")
+
+
 def slugify(name):
-    s = name.replace("Đ", "D").replace("đ", "d")
+    """Giống công thức cột E trong Google Sheet: bỏ danh xưng đầu tên, bỏ dấu, nối bằng gạch ngang."""
+    s = unicodedata.normalize("NFC", name.strip()).lower()
+    s = HONORIFIC.sub("", s)
+    s = s.replace("đ", "d")
     s = unicodedata.normalize("NFD", s)
-    s = "".join(c for c in s if unicodedata.category(c) != "Mn").lower()
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
     s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
     return s or "khach"
 
@@ -53,12 +59,17 @@ def read_rows(path):
 def main():
     if len(sys.argv) != 2:
         sys.exit(__doc__)
+    rows = list(read_rows(sys.argv[1]))
+    count = {}
+    for _, name, _ in rows:
+        count[name.strip()] = count.get(name.strip(), 0) + 1
     guests, out = {}, []
-    for code, name, title in read_rows(sys.argv[1]):
-        base = slugify(name)
-        slug, n = base, 2
-        while slug in guests:
-            slug, n = "%s-%d" % (base, n), n + 1
+    for code, name, title in rows:
+        slug = slugify(name)
+        if count[name.strip()] > 1 and code:      # trùng tên: thêm mã khách, ví dụ #nguyen-van-anh-k012
+            slug += "-" + code.lower()
+        if slug in guests:
+            sys.exit("Link bị trùng: #%s (%s) — hãy thêm mã khách cho dòng này." % (slug, name))
         guests[slug] = {k: v for k, v in (("c", code), ("n", name), ("t", title)) if v}
         out.append((code, name, title, BASE + slug))
     (ROOT / "guests.json").write_text(json.dumps(guests, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

@@ -1,1 +1,216 @@
-{}
+{
+ "chi-chi-test": {
+  "c": "K001",
+  "n": "Chị chi chi (test)",
+  "t": "Designer công ty SMTAX"
+ },
+ "pham-van-hung": {
+  "c": "K002",
+  "n": "Ông Phạm Văn Hùng",
+  "t": "CEO - Công ty CP Đầu tư và Phát triển Hoàng Sa Việt"
+ },
+ "duong-van-hoi": {
+  "c": "K003",
+  "n": "Ông Dương Văn Hợi",
+  "t": "Giám đốc - Công ty TNHH Thương mại và Du lịch Anh Đạt"
+ },
+ "nguyen-van-diep": {
+  "c": "K004",
+  "n": "Ông Nguyễn Văn Điệp",
+  "t": "Giám đốc - Công ty TNHH NHG Việt Nam & Công ty CP TM DALOHA"
+ },
+ "vu-quang-hiep": {
+  "c": "K005",
+  "n": "Ông Vũ Quang Hiệp",
+  "t": "Tổng Giám đốc - Công ty TNHH DHQ"
+ },
+ "luong-thi-bich-van": {
+  "c": "K006",
+  "n": "Bà Lương Thị Bích Vân",
+  "t": "Giám đốc - Công ty TNHH Du lịch bầu trời Việt"
+ },
+ "hoang-anh": {
+  "c": "K007",
+  "n": "Bà Hoàng Ánh",
+  "t": "CEO - Công ty cổ phần thương mại AV"
+ },
+ "duong-van-hoa": {
+  "c": "K008",
+  "n": "Ông Dương Văn Hoà",
+  "t": "Giám đốc - Công ty Cổ phần Công nghệ thiết bị ETD"
+ },
+ "hoang-phi-yen": {
+  "c": "K009",
+  "n": "Bà Hoàng Phi Yến",
+  "t": "Phó Giám đốc - Công ty TNHH XNK và thương mại PTM"
+ },
+ "nguyen-thac-cuong": {
+  "c": "K010",
+  "n": "Ông Nguyễn Thạc Cường",
+  "t": "CEO - Công ty cổ phần Đầu tư thương mại và dịch vụ tư vấn Vạn Thành"
+ },
+ "au-van-tuan": {
+  "c": "K011",
+  "n": "Ông Âu Văn Tuấn",
+  "t": "Giám đốc - Công ty cổ phần tư vấn đầu tư xây dựng và dịch vụ thương mại Tuấn Linh"
+ },
+ "nguyen-van-hieu": {
+  "c": "K012",
+  "n": "Ông Nguyễn Văn Hiếu",
+  "t": "Giám đốc - Công ty CP Truyền thông và công nghệ Việt AI Group"
+ },
+ "phung-quyet-thanh": {
+  "c": "K013",
+  "n": "Ông Phùng Quyết Thanh",
+  "t": "Giám đốc - Công ty TNHH Thiết bị và Công nghệ Quyết Tiến"
+ },
+ "nguyen-manh-thang": {
+  "c": "K014",
+  "n": "Ông Nguyễn Mạnh Thắng",
+  "t": "CEO - Công ty TNHH AgileTech Việt Nam"
+ },
+ "nguyen-duc-quy": {
+  "c": "K015",
+  "n": "Ông Nguyễn Đức Quý",
+  "t": "Tổng Giám đốc - Công ty Cổ phần Công nghệ Công nghiệp Vconnex"
+ },
+ "nguyen-duy-tuan": {
+  "c": "K016",
+  "n": "Ông Nguyễn Duy Tuấn",
+  "t": "Giám đốc - Lão Cổ Vật"
+ },
+ "nguyen-duy-lam": {
+  "c": "K017",
+  "n": "Ông Nguyễn Duy Lâm",
+  "t": "Giám đốc - Công ty Cổ phần Truyền thông Thương hiệu Việt Nam"
+ },
+ "nguyen-minh-duong": {
+  "c": "K018",
+  "n": "Ông Nguyễn Minh Dương",
+  "t": "Giám đốc chi nhánh - Ngân hàng TNHH Một thành viên Shinhan Việt Nam - chi nhánh Hoàng Mai"
+ },
+ "nguyen-kim-dung": {
+  "c": "K019",
+  "n": "Bà Nguyễn Kim Dung",
+  "t": "Giám đốc - Công ty TNHH Đầu tư và Công nghệ Đại Cát Tường"
+ },
+ "pham-van-toan": {
+  "c": "K020",
+  "n": "Ông Phạm Văn Toàn",
+  "t": "Giám đốc - Công ty CP đầu tư và công nghệ Vilux"
+ },
+ "nguyen-ba-thang": {
+  "c": "K021",
+  "n": "Ông Nguyễn Bá Thắng",
+  "t": "Giám đốc - Công ty cổ phần Phương Anh"
+ },
+ "do-thu-huong": {
+  "c": "K022",
+  "n": "Bà Đỗ Thu Hương",
+  "t": "Giám đốc - Công ty Cổ phần Kiến trúc và Xây dựng ICAD Việt Nam"
+ },
+ "nguyen-minh-thanh": {
+  "c": "K023",
+  "n": "Ông Nguyễn Minh Thành"
+ },
+ "vu-thi-le-thuy": {
+  "c": "K024",
+  "n": "Bà Vũ Thị Lệ Thuỷ",
+  "t": "Tổng Giám đốc - Hợp tác xã 3T Nông Sản Cao Phong"
+ },
+ "le-thi-phuong-thanh": {
+  "c": "K025",
+  "n": "Bà Lê Thị Phương Thanh",
+  "t": "Tổng Giám đốc - Công ty TNHH Đầu tư Công nghệ ATT"
+ },
+ "nguyen-xuan-truong": {
+  "c": "K026",
+  "n": "Ông Nguyễn Xuân Trường"
+ },
+ "ngo-viet-quyet": {
+  "c": "K027",
+  "n": "Ông Ngô Viết Quyết",
+  "t": "Giám đốc - Công ty CP đầu tư và công nghệ An Việt"
+ },
+ "do-thi-thu-trang": {
+  "c": "K028",
+  "n": "Bà Đỗ Thị Thu Trang",
+  "t": "Chủ tịch HĐQT - Công ty TNHH Tập đoàn luật và kế toán Việt Mỹ"
+ },
+ "nguyen-sy-cuong": {
+  "c": "K029",
+  "n": "Ông Nguyễn Sỹ Cường",
+  "t": "Giám đốc - Công ty CP Sản xuất và xuất nhập khẩu Ngôi Sao Phương Nam"
+ },
+ "do-duy-nguyen": {
+  "c": "K030",
+  "n": "Ông Đỗ Duy Nguyên"
+ },
+ "le-canh-tung": {
+  "c": "K031",
+  "n": "Ông Lê Cảnh Tùng"
+ },
+ "nguyen-quoc-van": {
+  "c": "K032",
+  "n": "Ông Nguyễn Quốc Văn",
+  "t": "Phó Tổng Giám đốc - Công ty CP Đầu tư AMG Việt Nam"
+ },
+ "pham-hong-nguyen": {
+  "c": "K033",
+  "n": "Phạm Hồng Nguyên",
+  "t": "Giám đốc - Công ty CP Kết nối Công nghệ Số Việt Nam (VICONNECT)"
+ },
+ "nguyen-the-duan": {
+  "c": "K034",
+  "n": "Ông Nguyễn Thế Duẫn"
+ },
+ "trieu-van-ba": {
+  "c": "K035",
+  "n": "Ông Triệu Văn Ba",
+  "t": "Chủ tịch HĐQT - Công ty Cổ phần Đầu tư phát triển xây dựng Việt Phú"
+ },
+ "nguyen-thi-hong-trang": {
+  "c": "K036",
+  "n": "Bà Nguyễn Thị Hồng Trang",
+  "t": "Giám đốc - Công ty TNHH sản xuất thương mại và dịch vụ Việt An Phát"
+ },
+ "hoang-van-nam": {
+  "c": "K037",
+  "n": "Ông Hoàng Văn Nam",
+  "t": "Giám đốc - Công ty TNHH Kho Vận Globalcom"
+ },
+ "cao-van-manh": {
+  "c": "K038",
+  "n": "Ông Cao Văn Mạnh",
+  "t": "CEO - Hoa Dương Entertainment (Công ty CP Nghệ thuật Giải trí Hoa Dương)"
+ },
+ "ha-kim-thuy": {
+  "c": "K039",
+  "n": "Bà Hà Kim Thuỷ",
+  "t": "Công ty CP Flexfit"
+ },
+ "do-thu-huyen": {
+  "c": "K040",
+  "n": "Bà Đỗ Thu Huyền"
+ },
+ "nguyen-thi-khuyen": {
+  "c": "K041",
+  "n": "Bà Nguyễn Thị Khuyên",
+  "t": "Giám đốc - Công ty TNHH NASAKI Việt Nam"
+ },
+ "nguyen-thi-phuong": {
+  "c": "K042",
+  "n": "Bà Nguyễn Thị Phượng",
+  "t": "Giám đốc - Công ty TNHH TMDV Nhà hàng SOS"
+ },
+ "nguyen-trung-kien": {
+  "c": "K043",
+  "n": "Ông Nguyễn Trung Kiên",
+  "t": "Viện trưởng - Viện chiến lược công nghệ và đổi mới sáng tạo (STI)/ Công ty cổ phần ACM HOLDINGS"
+ },
+ "nguyen-thanh-tuan": {
+  "c": "K044",
+  "n": "Ông Nguyễn Thanh Tuấn",
+  "t": "Chủ tịch HĐQT - Công ty CP tư vấn thương hiệu Sao Kim"
+ }
+}
