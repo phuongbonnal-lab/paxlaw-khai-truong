@@ -973,8 +973,24 @@ body{
   function dec(h){if(!/^[0-9a-f]+$/i.test(h)||h.length%2)return null;var b=new Uint8Array(h.length/2);
     for(var i=0;i<b.length;i++)b[i]=parseInt(h.substr(i*2,2),16);
     try{return new TextDecoder('utf-8',{fatal:true}).decode(b);}catch(e){return null;}}
+  /* short links: #nguyen-van-anh → looked up in guests.json */
+  var GUESTS=null, guestsLoading=null;
+  function loadGuests(){
+    if(!guestsLoading)guestsLoading=fetch('guests.json?v='+Date.now(),{cache:'no-store'})
+      .then(function(r){return r.ok?r.json():{};}).catch(function(){return {};})
+      .then(function(j){GUESTS=j||{};return GUESTS;});
+    return guestsLoading;}
   function readGuest(){
     var h=(location.hash||'').replace(/^#/,''); guest={code:'',name:'',title:''};
+    var slug=''; try{slug=decodeURIComponent(h).toLowerCase();}catch(e){}
+    if(/^[a-z0-9][a-z0-9-]*$/.test(slug)&&!/^[ku]-/.test(slug)){
+      var use=function(g){var x=g[slug];
+        if(x){guest={code:x.c||'',name:x.n||'',title:x.t||''};}
+        applyGuest();};
+      if(GUESTS){use(GUESTS);return;}
+      applyGuest(); loadGuests().then(function(g){if((location.hash||'').replace(/^#/,'')===h)use(g);});
+      return;
+    }
     var t=null;
     if(h.indexOf('k-')===0)t=dec(h.slice(2));
     else if(h.indexOf('u-')===0&&/^[0-9a-f]+$/i.test(h.slice(2))&&h.length%4===2){
@@ -983,6 +999,9 @@ body{
       if(t){var p=t.split(/[\u001f\u00a6]/);
         if(p.length>=3){guest.code=p[0].trim();guest.name=p[1].trim();guest.title=p[2].trim();}
         else{guest.name=(p[0]||'').trim();guest.title=(p[1]||'').trim();}}}
+    applyGuest();
+  }
+  function applyGuest(){
     ['vp','vl'].forEach(function(s){
       var n=document.getElementById('name-'+s), o=document.getElementById('org-'+s);
       n.textContent=guest.name||DEFAULT_NAME;
