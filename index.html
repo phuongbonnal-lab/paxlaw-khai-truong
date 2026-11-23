@@ -973,22 +973,43 @@ body{
   function dec(h){if(!/^[0-9a-f]+$/i.test(h)||h.length%2)return null;var b=new Uint8Array(h.length/2);
     for(var i=0;i<b.length;i++)b[i]=parseInt(h.substr(i*2,2),16);
     try{return new TextDecoder('utf-8',{fatal:true}).decode(b);}catch(e){return null;}}
-  /* short links: #nguyen-van-anh → looked up in guests.json */
-  var GUESTS=null, guestsLoading=null;
-  function loadGuests(){
-    if(!guestsLoading)guestsLoading=fetch('guests.json?v='+Date.now(),{cache:'no-store'})
-      .then(function(r){return r.ok?r.json():{};}).catch(function(){return {};})
-      .then(function(j){GUESTS=j||{};return GUESTS;});
-    return guestsLoading;}
+  /* short links: #nguyen-van-anh → looked up live in the "Khách mời" tab of the guest sheet
+     (row whose link in column E ends with #slug), with guests.json as a fallback */
+  var SHEET_ID='1dwpcENSFR5bEPK5AIgNpcGSyK7OvARrnluwu4ut8S6s', SHEET_GID='102';
+  var GUESTS={}, seq=0;
+  function fromSheet(slug){
+    return new Promise(function(done){
+      var cb='__paxGuest'+(++seq), s=document.createElement('script'), t;
+      function end(v){clearTimeout(t);try{delete window[cb];}catch(e){window[cb]=undefined;}s.remove();done(v);}
+      window[cb]=function(res){
+        try{var r=res.table.rows[0];
+          if(!r)return end(null);
+          var v=r.c.map(function(c){return c&&c.v!=null?String(c.v).trim():'';});
+          end(v[1]?{c:v[0],n:v[1],t:v[2]}:null);}catch(e){end(null);}};
+      var q="select A,B,C where E ends with '#"+slug+"' limit 1";
+      s.src='https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/gviz/tq?gid='+SHEET_GID+
+        '&tqx=responseHandler:'+cb+'&tq='+encodeURIComponent(q)+'&_='+Date.now();
+      s.onerror=function(){end(null);};
+      t=setTimeout(function(){end(null);},8000);
+      document.head.appendChild(s);});}
+  var fileLoading=null;
+  function fromFile(slug){
+    if(!fileLoading)fileLoading=fetch('guests.json?v='+Date.now(),{cache:'no-store'})
+      .then(function(r){return r.ok?r.json():{};}).catch(function(){return {};});
+    return fileLoading.then(function(g){return g[slug]||null;});}
+  function lookup(slug){
+    if(GUESTS[slug])return Promise.resolve(GUESTS[slug]);
+    return Promise.all([fromSheet(slug),fromFile(slug)]).then(function(x){
+      var g=x[0]||x[1]; if(g)GUESTS[slug]=g; return g;});}
   function readGuest(){
     var h=(location.hash||'').replace(/^#/,''); guest={code:'',name:'',title:''};
     var slug=''; try{slug=decodeURIComponent(h).toLowerCase();}catch(e){}
     if(/^[a-z0-9][a-z0-9-]*$/.test(slug)&&!/^[ku]-/.test(slug)){
-      var use=function(g){var x=g[slug];
+      var use=function(x){
         if(x){guest={code:x.c||'',name:x.n||'',title:x.t||''};}
         applyGuest();};
-      if(GUESTS){use(GUESTS);return;}
-      applyGuest(); loadGuests().then(function(g){if((location.hash||'').replace(/^#/,'')===h)use(g);});
+      if(GUESTS[slug]){use(GUESTS[slug]);return;}
+      applyGuest(); lookup(slug).then(function(x){if((location.hash||'').replace(/^#/,'')===h)use(x);});
       return;
     }
     var t=null;
